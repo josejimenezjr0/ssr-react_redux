@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import fetchUsers from '../actions/fetchUsers'
 
-const UsersList = ({ fetchUsers, users }) => {
+const UsersList = () => {
+  const users = useSelector(state => state.users)
+  const dispatch = useDispatch()
+
   useEffect(() => {
-    fetchUsers()
+    dispatch(fetchUsers())
   }, [])
 
   const renderUsers = users.map( user => <li key={ user.id }>{ user.name }</li> )
@@ -19,6 +22,28 @@ const UsersList = ({ fetchUsers, users }) => {
   )
 }
 
-const mapStateToProps = state => ({ users: state.users })
+export default UsersList
 
-export default connect(mapStateToProps, { fetchUsers })(UsersList)
+
+// import { connect } from 'react-redux'
+
+// const UsersList = ({ fetchUsers, users }) => {
+//   useEffect(() => {
+//     fetchUsers()
+//   }, [])
+
+//   const renderUsers = users.map( user => <li key={ user.id }>{ user.name }</li> )
+
+//   return (
+//     <div>
+//       Here's a big list of users:
+//       <ul>
+//         { renderUsers }
+//       </ul>
+//     </div>
+//   )
+// }
+
+// const mapStateToProps = state => ({ users: state.users })
+
+// export default connect(mapStateToProps, { fetchUsers })(UsersList)
