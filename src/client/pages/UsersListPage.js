@@ -22,8 +22,11 @@ const UsersList = () => {
   )
 }
 
-export default UsersList
+const loadData = store => store.dispatch(fetchUsers())
 
+export { loadData }
+
+export default UsersList
 
 // import { connect } from 'react-redux'
 

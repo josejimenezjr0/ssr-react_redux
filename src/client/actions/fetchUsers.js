@@ -1,5 +1,4 @@
 import axios from 'axios'
-// import { useDispatch } from 'react-redux'
 
 export const FETCH_USERS = 'fetch_users'
 export const fetchUsers = () => async dispatch => {

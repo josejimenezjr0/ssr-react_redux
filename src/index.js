@@ -13,10 +13,12 @@ app.use(express.static('public'))
 app.get('*', (req, res) => {
   const store = createStore()
 
-  // matchRoutes(Routes, req.path)
-  console.log('matchRoutes(Routes, req.path): ', matchRoutes(Routes, req.path));
+  const promises = matchRoutes(Routes, req.path).map(({ route }) => {
+    return route.loadData && route.loadData(store)
+  })
 
-  res.send(renderer(req, store))
+  Promise.all(promises).then(() => res.send(renderer(req, store)))
+
 })
 
 const port = process.env.PORT
