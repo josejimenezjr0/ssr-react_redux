@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import fetchUsers from '../actions/fetchUsers'
+import { fetchUsers } from '../actions/actionGenerators'
 
 const UsersList = () => {
   const users = useSelector(state => state.users)
