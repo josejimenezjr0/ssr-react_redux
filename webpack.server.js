@@ -1,13 +1,11 @@
 const path = require('path')
 const { merge } = require('webpack-merge')
 const baseConfig = require('./webpack.base')
-const webpackNodeExternals = require('webpack-node-externals')
+const nodeExternals = require('webpack-node-externals')
 
 const config = {
   //inform webpack for node instead of browser
   target: 'node',
-
-  // devtool: 'source-map',
 
   //root file of server
   entry: './src/index.js',
@@ -18,7 +16,7 @@ const config = {
     path: path.resolve(__dirname, 'build')
   },
 
-  externals: [webpackNodeExternals()]
+  externals: [nodeExternals()]
 }
 
 module.exports = merge(baseConfig, config)

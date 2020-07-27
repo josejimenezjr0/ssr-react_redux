@@ -6,6 +6,7 @@ import proxy from 'express-http-proxy'
 import Routes from './client/Routes'
 import renderer from './helpers/renderer'
 import createStore from './helpers/createStore'
+import './client/styles/style.css'
 
 
 const app = express()

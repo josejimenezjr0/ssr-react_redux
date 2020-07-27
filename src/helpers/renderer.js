@@ -19,6 +19,7 @@ export default (req, store) => {
     <html>
       <head>
         <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+        <link rel="stylesheet" href="main.css">
       </head>
       <body>
         <div id="root">${content}</div>
