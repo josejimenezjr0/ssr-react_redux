@@ -12,14 +12,16 @@ const Header = () => {
     (<a href="/api/login">Login</a>)
 
   return (
-    <div>
-      <Link to="/">React SSR</Link>
-      <div>
-        <Link to="/users">Users</Link>
-        <Link to="/admins">Admins</Link>
-        { authButton }
+    <nav className="flex justify-between bg-red-400 p-4 text-white">
+      <div className="text-2xl font-bold tracking-wide">
+        <Link to="/">React SSR</Link>
       </div>
-    </div>
+      <ul className="flex items-center justify-between">
+        <li className="px-4"><Link to="/users">Users</Link></li>
+        <li className="px-4"><Link to="/admins">Admins</Link></li>
+        <li className="px-4">{ authButton }</li>
+      </ul>
+    </nav>
   )
 }
 

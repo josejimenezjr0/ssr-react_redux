@@ -21,7 +21,7 @@ export default (req, store) => {
         <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
         <link rel="stylesheet" href="main.css">
       </head>
-      <body>
+      <body class="bg-gray-200">
         <div id="root">${content}</div>
         <script>
           window.INITIAL_STATE = ${serialize(store.getState())}

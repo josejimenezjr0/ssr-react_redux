@@ -2,10 +2,11 @@ import React from 'react'
 
 const Home = () => {
   return (
-  <div>
-    {/* <div>I'm the super cool home componenet</div>   */}
-    <div className="hello">I'm the super cool home componenet</div>  
-    <button onClick={() => console.log('Hi there!')}>Press me!</button>
+  <div className="flex justify-center mt-8">
+    <div className="flex flex-col items-center">
+      <div className="text-6xl">Welcome</div>
+      <p>Check out these awesome features!</p>
+    </div>
   </div>
   
   )
