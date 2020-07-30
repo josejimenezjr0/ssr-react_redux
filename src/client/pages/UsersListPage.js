@@ -2,11 +2,12 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchUsers } from '../actions/actionGenerators'
 
-const UsersList = () => {
+const UsersListPage = () => {
   const users = useSelector(state => state.users)
   const dispatch = useDispatch()
 
   useEffect(() => {
+    console.log('useEffect Users before dispatch');
     dispatch(fetchUsers())
   }, [])
 
@@ -25,7 +26,7 @@ const UsersList = () => {
 const loadData = store => store.dispatch(fetchUsers())
 
 export default { 
-  component: UsersList,
+  component: UsersListPage,
   loadData
 }
 

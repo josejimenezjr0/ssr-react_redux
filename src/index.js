@@ -17,12 +17,20 @@ app.use(express.static('public'))
 app.get('*', (req, res) => {
   const store = createStore(req)
 
-  const promises = matchRoutes(Routes, req.path).map(({ route }) => {
-    return route.loadData && route.loadData(store)
+  const promises = matchRoutes(Routes, req.path)
+    .map(({ route }) => route.loadData && route.loadData(store))
+    .map(promise => promise && new Promise((resolve, reject) => {
+      promise.then(resolve).catch(resolve)
+    }))
+
+  Promise.all(promises).then(() => {
+    const context = {}
+    const content = renderer(req, store, context)
+
+    context.notFound && res.status(404)
+    
+    res.send(content)
   })
-
-  Promise.all(promises).then(() => res.send(renderer(req, store)))
-
 })
 
 const port = process.env.PORT
