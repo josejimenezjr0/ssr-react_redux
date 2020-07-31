@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchAdmins } from '../actions/actionGenerators'
+import withRequireAuth from '../components/hocs/withRequireAuth'
 
 const AdminsListPage = () => {
   const admins = useSelector(state => state.admins)
@@ -26,6 +27,7 @@ const AdminsListPage = () => {
 const loadData = store => store.dispatch(fetchAdmins())
 
 export default { 
-  component: AdminsListPage,
+  component: withRequireAuth(AdminsListPage),
+  // component: AdminsListPage,
   loadData
 }
