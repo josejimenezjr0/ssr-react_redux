@@ -27,11 +27,7 @@ app.get('*', (req, res) => {
     const context = {}
     const content = renderer(req, store, context)
 
-    context.url && res.redirect(context.url)
-
-    // if(context.url) {
-    //   return res.redirect(context.url)
-    // }
+    if(context.url) return res.redirect(context.url)
 
     context.notFound && res.status(404)
 
@@ -42,13 +38,3 @@ app.get('*', (req, res) => {
 const port = process.env.PORT
 
 app.listen(port, () => console.log(`Listening on port ${port}`))
-
-// app.use(
-//   '/api',
-//   proxy('http://react-ssr-api.herokuapp.com', {
-//     proxyReqOptDecorator(opts) {
-//       opts.headers['x-forwarded-host'] = 'localhost:5000'
-//       return opts
-//     }
-//   })
-// )

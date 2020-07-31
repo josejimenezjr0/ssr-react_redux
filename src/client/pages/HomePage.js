@@ -8,10 +8,8 @@ const Home = () => {
       <p>Check out these awesome features!</p>
     </div>
   </div>
-  
   )
 }
-
 
 export default {
   component: Home

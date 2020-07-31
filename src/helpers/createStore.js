@@ -8,7 +8,6 @@ export default (req) => {
 
   const axiosInstance = axios.create({
     baseURL: 'http://localhost:3000',
-    // baseURL: 'http://react-ssr-api.herokuapp.com',
     headers: { cookie: req.get('cookie') || ''}
   })
 

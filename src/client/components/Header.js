@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux'
 
 const Header = () => {
   const auth = useSelector(({ auth }) => auth)
-  console.log('auth: ', auth);
 
   const authButton = auth ? 
     (<a href="/api/logout">Logout</a>)

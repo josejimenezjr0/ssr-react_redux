@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NotFoundPage = ({ staticContext = { } }) => {
+const NotFoundPage = ({ staticContext = {} }) => {
   staticContext.notFound = true
   return (
     <div className="flex justify-center mt-8 text-6xl">
@@ -8,7 +8,6 @@ const NotFoundPage = ({ staticContext = { } }) => {
     </div>
   )
 }
-
 
 export default {
   component: NotFoundPage

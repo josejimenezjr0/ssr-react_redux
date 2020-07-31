@@ -8,7 +8,6 @@ const AdminsListPage = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log('useEffect Admins before dispatch');
     dispatch(fetchAdmins())
   }, [])
 
@@ -28,6 +27,5 @@ const loadData = store => store.dispatch(fetchAdmins())
 
 export default { 
   component: withRequireAuth(AdminsListPage),
-  // component: AdminsListPage,
   loadData
 }

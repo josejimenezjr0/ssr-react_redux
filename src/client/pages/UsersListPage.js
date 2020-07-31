@@ -8,16 +8,17 @@ const UsersListPage = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log('useEffect Users before dispatch');
     dispatch(fetchUsers())
   }, [])
 
   const renderUsers = users.map( user => <li key={ user.id }>{ user.name }</li> )
 
-  const head = <Helmet>
-                      <title>{`${users.length} Users Loaded`}</title>
-                      <meta property="og:title" content="Users App" />
-                    </Helmet>
+  const head = (
+    <Helmet>
+      <title>{`${users.length} Users Loaded`}</title>
+      <meta property="og:title" content="Users App" />
+    </Helmet>
+  )
 
   return (
     <div>
@@ -36,26 +37,3 @@ export default {
   component: UsersListPage,
   loadData
 }
-
-// import { connect } from 'react-redux'
-
-// const UsersList = ({ fetchUsers, users }) => {
-//   useEffect(() => {
-//     fetchUsers()
-//   }, [])
-
-//   const renderUsers = users.map( user => <li key={ user.id }>{ user.name }</li> )
-
-//   return (
-//     <div>
-//       Here's a big list of users:
-//       <ul>
-//         { renderUsers }
-//       </ul>
-//     </div>
-//   )
-// }
-
-// const mapStateToProps = state => ({ users: state.users })
-
-// export default connect(mapStateToProps, { fetchUsers })(UsersList)
