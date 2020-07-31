@@ -5,8 +5,6 @@ import { Redirect } from 'react-router-dom'
 const withRequireAuth = ChildComponent => props => {
   const auth = useSelector(state => state.auth)
 
-  console.log('anything');
-
   const mapping = {
     [false]: <Redirect to="/" />,
     [null]: <div>Loading...</div>

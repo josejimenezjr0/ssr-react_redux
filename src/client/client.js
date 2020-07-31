@@ -8,6 +8,7 @@ import { renderRoutes } from 'react-router-config'
 import axios from 'axios'
 import Routes from './Routes'
 import reducers from './reducers/combineReducers'
+import { HelmetProvider } from 'react-helmet-async';
 
 const axiosInstance = axios.create({
   baseURL: '/api',
@@ -21,9 +22,11 @@ const store = createStore(
 
 ReactDOM.hydrate(
   <Provider store={store}>
-    <BrowserRouter>
-      <div>{renderRoutes(Routes)}</div>
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <div>{renderRoutes(Routes)}</div>
+      </BrowserRouter>
+    </HelmetProvider>
   </Provider>,
   document.querySelector('#root')
 )

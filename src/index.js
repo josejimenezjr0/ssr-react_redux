@@ -27,8 +27,14 @@ app.get('*', (req, res) => {
     const context = {}
     const content = renderer(req, store, context)
 
+    context.url && res.redirect(context.url)
+
+    // if(context.url) {
+    //   return res.redirect(context.url)
+    // }
+
     context.notFound && res.status(404)
-    
+
     res.send(content)
   })
 })
